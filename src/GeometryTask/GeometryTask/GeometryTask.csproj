@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="Basic.cs" />
+      <Compile Remove="Figure base.cs" />
+    </ItemGroup>
+
 </Project>
