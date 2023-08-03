@@ -2,7 +2,7 @@
 
 public class Circle : FigureBase
 {
-    public override double CalculatorFigureleArea()
+    public override double CalculatorFigureArea()
     {
         int radius = 0;
         double area; 

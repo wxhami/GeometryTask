@@ -2,6 +2,5 @@
 
 public abstract class FigureBase
 {
-    public abstract int CalculatorFigureleArea();
-    
+    public abstract double CalculatorFigureArea();
 }
