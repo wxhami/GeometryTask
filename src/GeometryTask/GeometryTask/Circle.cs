@@ -6,7 +6,14 @@ public class Circle : FigureBase
 
     public Circle(double radius)
     {
-        _radius = radius;
+        if (radius != 0)
+        {
+            _radius = radius;
+        }
+        else
+        {
+            throw new ArgumentException("radius cannot be null");
+        }
     }
 
     public override double GetArea()
