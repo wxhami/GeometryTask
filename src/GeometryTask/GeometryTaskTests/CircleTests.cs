@@ -5,17 +5,17 @@ namespace GeometryTask;
 public class CircleTests
 {
     [Theory()]
-    [InlineData(9, 6)]
-    [InlineData()]
-    [InlineData()
-    public void Test(int radius, int area)
+    [InlineData(9, 254.34)]
+    [InlineData(8, 200.96)]
+    public void Test(int radius, double expectedArea)
     {
+        //arrange
+        var circle = new Circle(radius);
+
         //act
-        var circle = new Circle();
         var result = circle.GetArea();
 
-
         //assert
-        Assert.Equal(expectedTarget, target);
+        Assert.Equal(result, expectedArea);
     }
 }

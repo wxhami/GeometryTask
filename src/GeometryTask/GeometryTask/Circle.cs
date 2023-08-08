@@ -11,6 +11,6 @@ public class Circle : FigureBase
 
     public override double GetArea()
     {
-        return Math.PI * (_radius * _radius);
+        return 3.14 * (_radius * _radius);
     }
 }
