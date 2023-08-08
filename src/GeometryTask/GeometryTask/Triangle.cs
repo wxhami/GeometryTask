@@ -3,8 +3,8 @@
 public class Triangle : FigureBase
 {
     private double _sideOne;
-    private double _sideTwo;
     private double _sideThree;
+    private double _sideTwo;
 
     public Triangle(double sideOne, double sideTwo, double sideThree)
     {
@@ -15,7 +15,7 @@ public class Triangle : FigureBase
 
     public bool CheckRectangular()
     {
-        double[] array = {_sideOne, _sideTwo, _sideThree};
+        double[] array = { _sideOne, _sideTwo, _sideThree };
         array.Sort();
         double max = array[0];
         double sumTwoSides = array[1] + array[2];
@@ -27,7 +27,7 @@ public class Triangle : FigureBase
         return true;
     }
 
-    public override double CalculatorFigureArea()
+    public override double GetArea()
     {
         double area;
         area = (_sideOne + _sideTwo + _sideThree) / 2;

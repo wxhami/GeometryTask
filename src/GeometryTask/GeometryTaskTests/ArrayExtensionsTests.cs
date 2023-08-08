@@ -1,4 +1,5 @@
 using GeometryTask;
+using Xunit;
 
 namespace GeometryTaskTests;
 
@@ -8,12 +9,12 @@ public class UnitTest1
     public void ArrayExtensions_SortArray()
     {
         //arrange
-        double[] nums = { 2,3,1 };
+        double[] nums = { 2, 3, 1 };
 
         //act
         nums.Sort();
 
         //assert
-        Assert.Equal(new double[]{1,2,3}, nums);
+        Assert.Equal(new double[] { 1, 2, 3 }, nums);
     }
 }

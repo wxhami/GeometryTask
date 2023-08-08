@@ -2,5 +2,5 @@
 
 public abstract class FigureBase
 {
-    public abstract double CalculatorFigureArea();
+    public abstract double GetArea();
 }

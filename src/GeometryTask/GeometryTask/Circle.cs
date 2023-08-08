@@ -2,11 +2,15 @@
 
 public class Circle : FigureBase
 {
-    public override double CalculatorFigureArea()
+    private double _radius;
+
+    public Circle(double radius)
     {
-        int radius = 0;
-        double area; 
-        area = 3.14 * (radius * 2);
-        return area;
+        _radius = radius;
+    }
+
+    public override double GetArea()
+    {
+        return Math.PI * (_radius * _radius);
     }
 }
