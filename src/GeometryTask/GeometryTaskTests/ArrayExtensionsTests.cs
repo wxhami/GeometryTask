@@ -3,10 +3,10 @@ using Xunit;
 
 namespace GeometryTaskTests;
 
-public class UnitTest1
+public class ArrayExtensionsTests
 {
     [Fact]
-    public void ArrayExtensions_SortArray()
+    public void Sort_SortArray_WhenValidArray()
     {
         //arrange
         double[] nums = { 2, 3, 1 };
