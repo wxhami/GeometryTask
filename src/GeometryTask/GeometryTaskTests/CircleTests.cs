@@ -19,14 +19,16 @@ public class CircleTests
         Assert.Equal(result, expectedArea);
     }
 
-    [Fact]
-    public void Circle_ShouldThrowArgumentException_WhenRadiusIsNull()
+    [Theory()]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public void Circle_ShouldThrowArgumentException_WhenRadiusIsNull(int radius)
     {
         //act
-        var exception = Assert.Throws<ArgumentException>(() => new Circle(0));
+        var exception = Assert.Throws<ArgumentException>(() => new Circle(radius));
 
 
         //assert
-        Assert.Equal("radius cannot be null or less than null", exception.Message);
+        Assert.Equal("radius cannot be zero or less than zero", exception.Message);
     }
 }

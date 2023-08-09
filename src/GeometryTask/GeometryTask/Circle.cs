@@ -12,7 +12,7 @@ public class Circle : FigureBase
         }
         else
         {
-            throw new ArgumentException("radius cannot be null or less than null");
+            throw new ArgumentException("radius cannot be zero or less than zero");
         }
     }
 
