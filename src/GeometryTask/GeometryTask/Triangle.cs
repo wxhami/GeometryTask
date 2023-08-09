@@ -9,7 +9,8 @@ public class Triangle : FigureBase
 
     public Triangle(double sideOne, double sideTwo, double sideThree)
     {
-        if (_sideOne + _sideThree > _sideTwo || _sideThree + _sideTwo > _sideOne || _sideOne + _sideTwo > _sideThree)
+        if (_sideOne + _sideThree > _sideTwo || _sideThree + _sideTwo > _sideOne || _sideOne + _sideTwo > _sideThree &&
+            _sideOne > 0 && _sideTwo > 0 && _sideThree > 0)
         {
             _sideOne = sideOne;
             _sideTwo = sideTwo;
