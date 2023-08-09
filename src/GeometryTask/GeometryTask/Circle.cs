@@ -6,13 +6,13 @@ public class Circle : FigureBase
 
     public Circle(double radius)
     {
-        if (radius != 0)
+        if (radius != 0 && radius > 0)
         {
             _radius = radius;
         }
         else
         {
-            throw new ArgumentException("radius cannot be null");
+            throw new ArgumentException("radius cannot be null or less than null");
         }
     }
 

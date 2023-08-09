@@ -22,14 +22,11 @@ public class CircleTests
     [Fact]
     public void Circle_ShouldThrowArgumentException_WhenRadiusIsNull()
     {
-        //arrange
-        int radius = 0;
-
         //act
         var exception = Assert.Throws<ArgumentException>(() => new Circle(0));
 
 
         //assert
-        Assert.Equal("radius cannot be null", exception.Message);
+        Assert.Equal("radius cannot be null or less than null", exception.Message);
     }
 }
