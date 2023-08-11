@@ -9,8 +9,10 @@ public class Triangle : FigureBase
 
     public Triangle(double sideOne, double sideTwo, double sideThree)
     {
-        if (_sideOne + _sideThree > _sideTwo || _sideThree + _sideTwo > _sideOne || _sideOne + _sideTwo > _sideThree &&
-            _sideOne > 0 && _sideTwo > 0 && _sideThree > 0)
+        if ((sideOne + sideThree > sideTwo
+             && sideThree + sideTwo > sideOne
+             && sideOne + sideTwo > sideThree)
+            && sideOne > 0 && sideTwo > 0 && sideThree > 0)
         {
             _sideOne = sideOne;
             _sideTwo = sideTwo;
@@ -39,7 +41,8 @@ public class Triangle : FigureBase
     public override double GetArea()
     {
         double area;
-        area = (_sideOne + _sideTwo + _sideThree) / 2;
-        return area;
+        double p = (_sideOne + _sideTwo + _sideThree) / 2;
+        area = Math.Sqrt(p * (p - _sideOne) * (p - _sideTwo) * (p - _sideThree));
+        return double.Round(area, 2);
     }
 }

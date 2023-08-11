@@ -17,4 +17,19 @@ public class TriangleTests
         //assert
         Assert.Equal("incorrect sides of the triangle", exception.Message);
     }
+
+    [Theory()]
+    [InlineData(4, 2, 3, 2.90)]
+    [InlineData(4, 3, 3, 4.47)]
+    public void GetArea_ReturnsExpectedArea(double sideOne, double sideTwo, double sideThree, double expectedArea)
+    {
+        //arrange
+        var triangle = new Triangle(sideOne, sideTwo, sideThree);
+
+        //act
+        var result = triangle.GetArea();
+
+        //assert
+        Assert.Equal(expectedArea, result);
+    }
 }
