@@ -27,8 +27,7 @@ public class CircleTests
         //act
         var exception = Assert.Throws<ArgumentException>(() => new Circle(radius));
 
-
         //assert
-        Assert.Equal("radius cannot be zero or less than zero", exception.Message);
+        Assert.Equal("Radius cannot be zero or less than zero", exception.Message);
     }
 }

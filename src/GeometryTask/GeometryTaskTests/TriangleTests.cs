@@ -13,9 +13,8 @@ public class TriangleTests
         //act
         var exception = Assert.Throws<ArgumentException>(() => new Triangle(sideOne, sideTwo, sideThree));
 
-
         //assert
-        Assert.Equal("incorrect sides of the triangle", exception.Message);
+        Assert.Equal("Incorrect sides of the triangle", exception.Message);
     }
 
     [Theory()]
@@ -36,8 +35,7 @@ public class TriangleTests
     [Theory()]
     [InlineData(4, 2, 3, false)]
     [InlineData(6, 8, 10, true)]
-    public void CheckRectangular_Test(double sideOne, double sideTwo, double sideThree, bool expected)
-
+    public void CheckRectangular_ReturnsCheckResult(double sideOne, double sideTwo, double sideThree, bool expected)
     {
         //arrange
         var triangle = new Triangle(sideOne, sideTwo, sideThree);

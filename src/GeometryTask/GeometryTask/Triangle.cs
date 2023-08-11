@@ -6,13 +6,14 @@ public class Triangle : FigureBase
     private double _sideThree;
     private double _sideTwo;
 
-
     public Triangle(double sideOne, double sideTwo, double sideThree)
     {
-        if ((sideOne + sideThree > sideTwo
-             && sideThree + sideTwo > sideOne
-             && sideOne + sideTwo > sideThree)
-            && sideOne > 0 && sideTwo > 0 && sideThree > 0)
+        if (sideOne + sideThree > sideTwo
+            && sideThree + sideTwo > sideOne
+            && sideOne + sideTwo > sideThree
+            && sideOne > 0
+            && sideTwo > 0
+            && sideThree > 0)
         {
             _sideOne = sideOne;
             _sideTwo = sideTwo;
@@ -20,7 +21,7 @@ public class Triangle : FigureBase
         }
         else
         {
-            throw new ArgumentException("incorrect sides of the triangle");
+            throw new ArgumentException("Incorrect sides of the triangle");
         }
     }
 
@@ -30,19 +31,13 @@ public class Triangle : FigureBase
         array.Sort();
         double sumTwoSides = (array[0] * array[0]) + (array[1] * array[1]);
         double max = array[2] * array[2];
-        if (max != sumTwoSides)
-        {
-            return false;
-        }
-
-        return true;
+        return max == sumTwoSides;
     }
 
     public override double GetArea()
     {
-        double area;
         double p = (_sideOne + _sideTwo + _sideThree) / 2;
-        area = Math.Sqrt(p * (p - _sideOne) * (p - _sideTwo) * (p - _sideThree));
+        double area = Math.Sqrt(p * (p - _sideOne) * (p - _sideTwo) * (p - _sideThree));
         return double.Round(area, 2);
     }
 }
