@@ -32,4 +32,20 @@ public class TriangleTests
         //assert
         Assert.Equal(expectedArea, result);
     }
+
+    [Theory()]
+    [InlineData(4, 2, 3, false)]
+    [InlineData(6, 8, 10, true)]
+    public void CheckRectangular_Test(double sideOne, double sideTwo, double sideThree, bool expected)
+
+    {
+        //arrange
+        var triangle = new Triangle(sideOne, sideTwo, sideThree);
+
+        //act
+        var result = triangle.CheckRectangular();
+
+        //assert
+        Assert.Equal(expected, result);
+    }
 }

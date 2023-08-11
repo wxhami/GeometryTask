@@ -28,8 +28,8 @@ public class Triangle : FigureBase
     {
         double[] array = { _sideOne, _sideTwo, _sideThree };
         array.Sort();
-        double max = array[0];
-        double sumTwoSides = array[1] + array[2];
+        double sumTwoSides = (array[0] * array[0]) + (array[1] * array[1]);
+        double max = array[2] * array[2];
         if (max != sumTwoSides)
         {
             return false;
