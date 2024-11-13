@@ -1,12 +1,14 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using GeometryTask;
+using Xunit;
 
-namespace GeometryTask;
+namespace GeometryTaskTests;
 
 public class CircleTests
 {
     [Theory()]
-    [InlineData(9, 254.34)]
-    [InlineData(8, 200.96)]
+    [InlineData(9, 254.47)]
+    [InlineData(8, 201.06)]
     public void GetArea_ReturnsExpectedArea(int radius, double expectedArea)
     {
         //arrange
@@ -16,7 +18,7 @@ public class CircleTests
         var result = circle.GetArea();
 
         //assert
-        Assert.Equal(result, expectedArea);
+        result.Should().Be(expectedArea);
     }
 
     [Theory()]
@@ -25,9 +27,10 @@ public class CircleTests
     public void Circle_ShouldThrowArgumentException_WhenRadiusIsNull(int radius)
     {
         //act
-        var exception = Assert.Throws<ArgumentException>(() => new Circle(radius));
+        var action = () => new Circle(radius);
 
         //assert
-        Assert.Equal("Radius cannot be zero or less than zero", exception.Message);
+        action.Should().ThrowExactly<ArgumentException>()
+            .WithMessage("Радиус не может быть равен или меньше 0.*");
     }
 }
