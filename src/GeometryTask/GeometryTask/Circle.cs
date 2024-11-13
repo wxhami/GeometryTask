@@ -5,20 +5,22 @@
 /// </summary>
 public class Circle : FigureBase
 {
-    // Приватное поле для хранения радиуса
-    private readonly double _radius;
+    /// <summary>
+    /// Приватное поле для хранения радиуса
+    /// </summary>
+    public double Radius { get; }
 
     /// <summary>
     /// Инициализирует круг с заданным радиусом.
     /// </summary>
-    /// <param name="radius">Радиус круга.</param>
-    /// <exception cref="ArgumentException">Выбрасывается, если радиус меньше или равен 0.</exception>
+    /// <param name="radius">радиус круга.</param>
+    /// <exception cref="ArgumentException">выбрасывается, если радиус меньше или равен 0.</exception>
     public Circle(double radius)
     {
         if (radius <= 0)
             throw new ArgumentException("Радиус не может быть равен или меньше 0.", nameof(radius));
 
-        _radius = radius;
+        Radius = radius;
     }
 
     /// <summary>
@@ -27,6 +29,6 @@ public class Circle : FigureBase
     /// <returns>Площадь круга.</returns>
     public override double GetArea()
     {
-        return double.Round(Math.PI * _radius * _radius, 2); 
+        return Math.PI * Radius * Radius; 
     }
 }

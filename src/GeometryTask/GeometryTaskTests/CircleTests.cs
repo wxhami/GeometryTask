@@ -9,7 +9,7 @@ public class CircleTests
     [Theory()]
     [InlineData(9, 254.47)]
     [InlineData(8, 201.06)]
-    public void GetArea_ReturnsExpectedArea(int radius, double expectedArea)
+    public void GetArea_ReturnsExpectedArea_ValidArgs(int radius, double expectedArea)
     {
         //arrange
         var circle = new Circle(radius);
@@ -18,13 +18,13 @@ public class CircleTests
         var result = circle.GetArea();
 
         //assert
-        result.Should().Be(expectedArea);
+        result.Should().BeApproximately(expectedArea, 0.005 );
     }
 
     [Theory()]
     [InlineData(0)]
     [InlineData(-1)]
-    public void Circle_ShouldThrowArgumentException_WhenRadiusIsNull(int radius)
+    public void Circle_ThrowsArgumentException_WhenRadiusIsNull(int radius)
     {
         //act
         var action = () => new Circle(radius);

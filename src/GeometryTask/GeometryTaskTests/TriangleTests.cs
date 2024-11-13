@@ -11,7 +11,7 @@ public class TriangleTests
     [InlineData(1, 3, 0)]
     [InlineData(1, 0, 3)]
     [InlineData(0, 1, 3)]
-    public void Triangle_ShouldThrowArgumentException_WhenOneOfSidesHasIncorrectValue(double sideOne, double sideTwo, double sideThree)
+    public void Triangle_ThrowsArgumentException_WhenOneOfSidesHasIncorrectValue(double sideOne, double sideTwo, double sideThree)
     {
         //act
         var action = () => new Triangle(sideOne, sideTwo, sideThree);
@@ -25,7 +25,7 @@ public class TriangleTests
     [InlineData(1, 3, 1)]
     [InlineData(1, 1, 3)]
     [InlineData(3, 1, 1)]
-    public void Triangle_ShouldThrowArgumentException_WhenSumTwoSidesLessThenThird(double sideOne, double sideTwo, double sideThree)
+    public void Triangle_ThrowsArgumentException_WhenSumTwoSidesLessThenThird(double sideOne, double sideTwo, double sideThree)
     {
         //act
         var action = () => new Triangle(sideOne, sideTwo, sideThree);
@@ -38,7 +38,7 @@ public class TriangleTests
     [Theory()]
     [InlineData(4, 2, 3, 2.90)]
     [InlineData(4, 3, 3, 4.47)]
-    public void GetArea_ReturnsExpectedArea(double sideOne, double sideTwo, double sideThree, double expectedArea)
+    public void GetArea_ReturnsExpectedArea_ValidArgs(double sideOne, double sideTwo, double sideThree, double expectedArea)
     {
         //arrange
         var triangle = new Triangle(sideOne, sideTwo, sideThree);
@@ -47,13 +47,13 @@ public class TriangleTests
         var result = triangle.GetArea();
 
         //assert
-        result.Should().Be(expectedArea);
+        result.Should().BeApproximately(expectedArea, 0.005);
     }
 
     [Theory()]
     [InlineData(4, 2, 3, false)]
     [InlineData(6, 8, 10, true)]
-    public void Triangle_CheckRectangular(double sideOne, double sideTwo, double sideThree, bool expected)
+    public void IsRectangular_ShouldBeValid_ValidArgs(double sideOne, double sideTwo, double sideThree, bool expected)
     {
         //arrange
         var triangle = new Triangle(sideOne, sideTwo, sideThree);

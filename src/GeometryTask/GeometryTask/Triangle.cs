@@ -8,32 +8,32 @@ namespace GeometryTask;
 public class Triangle : FigureBase
 {
     /// <summary>
-    /// длина первой стороны треугольника.
+    /// Длина первой стороны треугольника.
     /// </summary>
     public double SideOne { get; }
 
     /// <summary>
-    /// длина второй стороны треугольника.
+    /// Длина второй стороны треугольника.
     /// </summary>
     public double SideTwo { get; }
 
     /// <summary>
-    /// длина третьей стороны треугольника.
+    /// Длина третьей стороны треугольника.
     /// </summary>
     public double SideThree { get; }
 
     /// <summary>
-    /// является ли треугольник прямоугольным.
+    /// Является ли треугольник прямоугольным.
     /// </summary>
     public bool IsRectangular { get; }
     
     /// <summary>
-    /// текст ошибки при некорректном значении стороны треугольника.
+    /// Текст ошибки при некорректном значении стороны треугольника.
     /// </summary>
     private const string IncorrectValueSideTriangleException = "Значение cтороны треугольника должно быть больше 0.";
 
     /// <summary>
-    /// конструктор для создания треугольника с указанными сторонами.
+    /// Конструктор для создания треугольника с указанными сторонами.
     /// </summary>
     /// <param name="sideOne">первая сторона треугольника.</param>
     /// <param name="sideTwo">вторая сторона треугольника.</param>
@@ -51,9 +51,8 @@ public class Triangle : FigureBase
         
         
         if (sideOne + sideTwo <= sideThree || sideOne + sideThree <= sideTwo || sideTwo + sideThree <= sideOne)
-        {
             throw new InvalidTriangleException("Сумма двух сторон треугольника должна быть больше третьей.");
-        }
+        
 
         SideOne = sideOne;
         SideTwo = sideTwo;
@@ -62,7 +61,7 @@ public class Triangle : FigureBase
     }
 
     /// <summary>
-    /// проверяет, является ли треугольник прямоугольным.
+    /// Проверяет, является ли треугольник прямоугольным.
     /// </summary>
     /// <returns><c>true</c>, если треугольник прямоугольный; иначе <c>false</c>.</returns>
     private bool CheckRectangular()
@@ -74,13 +73,13 @@ public class Triangle : FigureBase
     }
 
     /// <summary>
-    /// вычисляет площадь треугольника по формуле Герона.
+    /// Вычисляет площадь треугольника по формуле Герона.
     /// </summary>
     /// <returns>площадь треугольника, округленная до двух знаков после запятой.</returns>
     public override double GetArea()
     {
         var p = (SideOne + SideTwo + SideThree) / 2;
         var area = Math.Sqrt(p * (p - SideOne) * (p - SideTwo) * (p - SideThree));
-        return double.Round(area, 2);
+        return area;
     }
 }
